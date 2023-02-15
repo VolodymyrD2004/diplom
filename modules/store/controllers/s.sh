@@ -1,0 +1,16 @@
+curl 'http://energobalans.odessa.ua/analysis.php' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6,sv;q=0.5' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Cookie: PHPSESSID=5aoscc7bh40f2vtrrnuhg79dn3' \
+  -H 'Origin: http://energobalans.odessa.ua' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://energobalans.odessa.ua/analysis.php' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36' \
+  --data-raw 'data%5Bscreen_width%5D=1920&data%5Bscreen_height%5D=1080&data%5Bkategory%5D=%D0%A6%D0%91%D0%A1+%D0%B4%D0%BB%D1%8F+%D0%B4%D0%BE%D1%80%D0%BE%D1%81%D0%BB%D0%B8%D1%85&data%5Bsubkategory%5D=%D0%92%D1%81%D0%B5+%D1%83%D1%87%D1%80%D0%B5%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F&data%5Bd1%5D=1&data%5Bm1%5D=1&data%5By1%5D=2010&data%5Bd2%5D=31&data%5Bm2%5D=12&data%5By2%5D=2022&data%5Bkrok%5D=31&data%5Banalysis%5D=1' \
+  -o analysis.html \
+  --compressed \
+  --insecure

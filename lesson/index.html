@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 3</title>
+</head>
+<body>
+
+<style>
+    .example {
+        padding: 5px;
+        width: 50%;
+        white-space: normal;
+        word-break: normal;
+        writing-mode: horizontal-tb;
+        word-spacing: 3px;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: red;
+        text-shadow: 5px 5px #0a58ca;
+        box-shadow: 21px 21px 22px -8px rgba(0, 0, 0, 0.75);
+
+    }
+</style>
+
+<style>
+    .example-2 div:nth-child(odd) {
+        background: #0a58ca;
+    }
+    .example-2 div:nth-child(even) {
+        background: #1c7430;
+    }
+    .done:after {
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-image: url("xmark.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    .done:before {
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-image: url("xmark.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+</style>
+
+
+<div class="example-2">
+    <div>
+        <span class="done">Done</span>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        <span class="done">Done</span>Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis <span class="done">Done</span>porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+    <div>
+        Integer ultricies, neque quis porta laoreet, mauris velit
+    </div>
+</div>
+
+<p class="example">
+    &copy; Lorem ipsum &pi; dolor sit amet, &lt;div&gt;
+
+    &hellip;
+    &euro;
+    &pound;
+    &yen;
+    &frac12;
+    &frac35;
+    &int;
+    &rAarr;
+    &hArr;
+    &#128513;
+    &#128540;
+    &#128560;
+    consectetur &laquo;adipiscing elit&raquo;. Ut eget posuere ligula. Integer ultricies, neque quis porta laoreet,
+    mauris velit hendrerit erat, nec aliquam orci neque quis felis. Quisque et mollis dolor. Integer egestas lectus
+    quis nibh tempor maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    In semper dui nec massa ornare, ac feugiat dui vulputate. Integer nibh tortor, vehicula non consequat id,
+    porttitor eget nibh.</p>
+
+
+</div>
+
+</body>
+</html>

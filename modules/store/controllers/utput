@@ -1,0 +1,800 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Энергобаланс</title><!-- Енергобаланс -->
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="tablesorter/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+<script type="text/javascript" src="tablesorter/jquery-latest.js"></script>
+<script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script>
+
+<script type="text/javascript">
+function selectRow(row)
+{
+    var firstInput = row.getElementsByTagName('input')[0];
+    firstInput.checked = !firstInput.checked;
+}
+</script>
+
+<script type="text/javascript">
+$.tablesorter.addParser({ 
+    // set a unique id 
+    id: 'thousands',
+    is: function(s) { 
+        // return false so this parser is not auto detected 
+        return false; 
+    }, 
+    format: function(s) {
+        // format your data for normalization 
+        return s.replace('$','').replace(/,/g,'');
+    }, 
+    // set type, either numeric or text 
+    type: 'numeric' 
+});
+
+$(document).ready(function() { 
+	$("#myTable_0, #myTable_1, #myTable_2, #myTable_3, #myTable_4, #myTable_5, #myTable_6, #myTable_7, #myTable_8, #myTable_9, #myTable_10").tablesorter({
+		headers: {
+			0:{//zero-based column index
+				sorter:'thousands'
+			},			
+		},
+		textExtraction: function(node){ 
+            return $(node).text().replace(/[,]/g,'.');
+        },
+	});
+});
+</script>
+
+<style type="text/css">
+.bgimg {
+	background-image: url(images/title.png);
+	width: 374px; height: 347px;
+	margin:0 auto;
+	position: relative;
+	top: -25px;
+}
+.text {
+	
+	margin:0 auto;
+	text-align: center;
+	position: relative;
+	top: -65px;
+}
+
+
+A.link 		 {TEXT-DECORATION: NONE; color: black; font-size: 16;}
+A.link:hover {TEXT-DECORATION: underline; color: blue; font-size: 16;}
+
+
+.w0 { border-collapse: collapse; border: 1px #FF3333 solid; background-color: #FFCCCC;}
+.w0 td { text-align:center; 	 border: 1px #FF3333 solid; background-color: #FFCCCC; padding: 2px;}
+.w0 th { text-align:center; 	 border: 1px #FF3333 solid; background-color: #FFCCCC; padding: 2px;}
+
+.w1 { border-collapse: collapse; border: 1px #3366CC solid; background-color: #99CCFF;}
+.w1 td { text-align:center;  	border: 1px #3366CC solid; background-color: #99CCFF; padding: 2px;}
+.w1 th { text-align:center;  	border: 1px #3366CC solid; background-color: #99CCFF; padding: 2px;}
+
+.w2 { border-collapse: collapse; border: 1px #9966FF solid; background-color: #CCCCFF;}
+.w2 td { text-align:center; 	 border: 1px #9966FF solid; background-color: #CCCCFF; padding: 2px;}
+.w2 th { text-align:center; 	 border: 1px #9966FF solid; background-color: #CCCCFF; padding: 2px;}
+
+.w3 { border-collapse: collapse; border: 1px #CC9933 solid; background-color: #FFFF99;}
+.w3 td { text-align:center;		 border: 1px #CC9933 solid; background-color: #FFFF99; padding: 2px;}
+.w3 th { text-align:center;		 border: 1px #CC9933 solid; background-color: #FFFF99; padding: 2px;}
+
+.w4 { border-collapse: collapse; border: 1px #CC6633 solid; background-color: #FFCC99;}
+.w4 td { text-align:center;		 border: 1px #CC6633 solid; background-color: #FFCC99; padding: 2px;}
+.w4 th { text-align:center;		 border: 1px #CC6633 solid; background-color: #FFCC99; padding: 2px;}
+
+.w5 { border-collapse: collapse; border: 1px #8A8A8A solid; background-color: #E8E8E8;}
+.w5 td { text-align:center; 	 border: 1px #8A8A8A solid; background-color: #E8E8E8; padding: 2px;}
+.w5 th { text-align:center; 	 border: 1px #8A8A8A solid; background-color: #E8E8E8; padding: 2px;}
+
+.w6 { border-collapse: collapse; border: 1px #315813 solid; background-color: #DBF3C9;}
+.w6 td { text-align:center; 	 border: 1px #315813 solid; background-color: #DBF3C9; padding: 2px;}
+.w6 th { text-align:center; 	 border: 1px #315813 solid; background-color: #DBF3C9; padding: 2px;}
+
+.w7 { border-collapse: collapse; border: 1px #703C1A solid; background-color: #F1D1BC;}
+.w7 td { text-align:center; 	 border: 1px #703C1A solid; background-color: #F1D1BC; padding: 2px;}
+.w7 th { text-align:center; 	 border: 1px #703C1A solid; background-color: #F1D1BC; padding: 2px;}
+
+.w8 { border-collapse: collapse; border: 1px #70523E solid; background-color: #D8C4B6;}
+.w8 td { text-align:center; 	 border: 1px #70523E solid; background-color: #D8C4B6; padding: 2px;}
+.w8 th { text-align:center; 	 border: 1px #70523E solid; background-color: #D8C4B6; padding: 2px;}
+
+.w9 { border-collapse: collapse; border: 1px #6A462F solid; background-color: #F0E3DB;}
+.w9 td {  text-align:center; 	 border: 1px #6A462F solid; background-color: #F0E3DB; padding: 2px;}
+.w9 th {  text-align:center; 	 border: 1px #6A462F solid; background-color: #F0E3DB; padding: 2px;}
+
+.w10 { border-collapse: collapse; border: 1px #724117 solid; background-color: #F5F5C6;}
+.w10 td { text-align:center; 	  border: 1px #724117 solid; background-color: #F5F5C6; padding: 2px;}
+.w10 th { text-align:center; 	  border: 1px #724117 solid; background-color: #F5F5C6; padding: 2px;}
+
+.temperatura { border-collapse: collapse; border: 1px #FFDEAD solid; background-color: white;}
+.temperatura td { text-align:center; 	  border: 1px #FFDEAD solid; background-color: white; padding: 2px;}
+
+.viter   { border-collapse: collapse; border: 1px #D1D6FF solid; background-color: white;}
+.viter td  { text-align:center; 	  border: 1px #D1D6FF solid; background-color: white; padding: 2px;}
+.viter th  { text-align:center; 	  border: 1px #D1D6FF solid; background-color: white; padding: 2px;}
+
+.info    { border-collapse: collapse; border: 1px #384871 solid; background-color: white;}
+.info 	td  { text-align:center; 	  border: 1px #384871 solid; background-color: white; padding: 2px;}
+.info 	th  { text-align:center; 	  border: 1px #384871 solid; background-color: white; padding: 2px;}
+
+.info2    { border-collapse: collapse; border: 1px #384871 solid; background-color: white;}
+
+
+
+
+</style>
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/ var s=[],s_timer=[]; function show(id,h,spd) { s[id]= s[id]==spd? -spd : spd; s_timer[id]=setTimeout(function() { var obj=document.getElementById(id);
+if(obj.offsetHeight+s[id]>=h){obj.style.height=h+"px";
+obj.style.overflow="auto";} else if(obj.offsetHeight+s[id]<=0){obj.style.height=0+"px";
+obj.style.display="none";} else {obj.style.height=(obj.offsetHeight+s[id])+"px";
+obj.style.overflow="hidden"; obj.style.display="block";
+setTimeout(arguments.callee, 10); } }, 10); } /*]]>*/ </script>
+
+
+
+<script type="text/javascript">
+function dynamicSelect(id1, id2) {
+  if (document.getElementById && document.getElementsByTagName) {
+	var sel1 = document.getElementById(id1);
+	var sel2 = document.getElementById(id2);
+	var clone = sel2.cloneNode(true);
+	var clonedOptions = clone.options;
+	refreshDynamicSelectOptions(sel1, sel2, clonedOptions);
+	sel1.onchange = function() {
+	  refreshDynamicSelectOptions(sel1, sel2, clonedOptions);
+	};
+  }
+}
+
+function refreshDynamicSelectOptions(sel1, sel2, clonedOptions) {
+  while (sel2.options.length) {
+	sel2.remove(0);
+  }
+  var pattern1 = /( |^)(select)( |$)/;
+  var pattern2 = new RegExp("( |^)(" +
+  sel1.options[sel1.selectedIndex].value + ")( |$)");
+  for (var i = 0; i < clonedOptions.length; i++) {
+	if (clonedOptions[i].className.match(pattern1) || clonedOptions[i].className.match(pattern2)) {
+	  sel2.appendChild(clonedOptions[i].cloneNode(true));
+	}
+  }
+}
+window.onload = function() {
+  dynamicSelect("kategory",  "subkategory");
+  dynamicSelect("kategory2", "subkategory2");
+  dynamicSelect("kategory3", "subkategory3");
+  dynamicSelect("kategory4", "subkategory4");
+  dynamicSelect("kategory5", "subkategory5");
+}
+
+
+
+</script>
+
+</head>
+<body bgcolor="#e0e2eb">
+	<script type="text/javascript">
+	
+	var tableToExcel = (function() {
+	  var uri = 'data:application/vnd.ms-excel;base64,'
+		, template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+		, base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+		, format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+	  return function(table, name) {
+		if (!table.nodeType) table = document.getElementById(table)
+		var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+		window.location.href = uri + base64(format(template, ctx))
+	  }
+	})()
+	</script>
+
+	
+	 
+	<form 	action="index.php" method="post" name="frt" id="frt" enctype="multipart/form-data">
+	
+	<button type="submit" class="index_button">
+		<i class="fa fa-arrow-circle-left"></i> вернуться <!-- Повернутись -->
+	</button>
+	<button class="index_button" onclick="tableToExcel('testTable', 'W3C Example Table'); return false; ">
+		<i class="fa fa-file-excel-o"></i> Экспорт в Excel <!-- Експорт в Excel -->
+	</button>
+	<input type="hidden" name="data[analysis]" value="0"/></center>
+	</form><p> 
+			<center>
+			<font color="red"><b>Важно!</b></font> - Если вы выбрали анализ по месяцам, <br> r n то день начала/окончания анализа не имеет значения, анализ будет за весь месяц.<p>
+			</center>	<center>
+	<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				<form method="POST" action="analysis.php">
+				<Script Language="JavaScript"> 
+				
+				
+				var height=0; 
+				var width=0; 
+				colorDepth = screen.colorDepth; 
+				if (self.screen) 
+				{ 
+				  width = screen.width 
+				  height = screen.height 
+				} 
+				else if (self.java) 
+				{ 
+				  var jToolKit = java.awt.Toolkit.getDefaultToolkit(); 
+				  var scrsize = jToolKit.getScreenSize(); 
+				  width = scrsize.width; 
+				  height = scrsize.height; 
+				}
+				if (width > 0 && height > 0) { 
+					document.write('<input type="hidden" name="data[screen_width]" value="'+width+'">');		
+					document.write('<input type="hidden" name="data[screen_height]" value="'+height+'">');		
+				}
+				
+				</Script>
+				
+						<font size="5"><b>ЦБС для дорослих Все учреждения</b></font>
+						<input type="hidden" name="data[kategory]" 		value="ЦБС для дорослих">
+						<input type="hidden" name="data[subkategory]" 	value="Все учреждения"> 
+				с <!-- з -->
+				<select name="data[d1]"><option value="1" selected>1</option><option value="2" >2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option>
+				</select>.<select name="data[m1]" onchange="m2.value=this.value;"><option value="1" selected>Январь</option><option value="2" >Февраль</option><option value="3" >Март</option><option value="4" >Апрель</option><option value="5" >Май</option><option value="6" >Июнь</option><option value="7" >Июль</option><option value="8" >Август</option><option value="9" >Сентябрь</option><option value="10" >Октябрь</option><option value="11" >Ноябрь</option><option value="12" >Декабрь</option>
+				</select>.<select name="data[y1]" onchange="y2.value=this.value;"><option value="2010" >2010</option><option value="2011" >2011</option><option value="2012" >2012</option><option value="2013" >2013</option><option value="2014" >2014</option><option value="2015" >2015</option><option value="2016" >2016</option><option value="2017" >2017</option><option value="2018" >2018</option><option value="2019" >2019</option><option value="2020" >2020</option><option value="2021" >2021</option><option value="2022" selected>2022</option>
+				</select> 
+				г. по:<!-- p. по: -->
+				
+				<select name="data[d2]"><option value="1" >1</option><option value="2" >2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" selected>31</option>
+				</select>.<select name="data[m2]" id="m2"><option value="1" >Январь</option><option value="2" >Февраль</option><option value="3" >Март</option><option value="4" >Апрель</option><option value="5" >Май</option><option value="6" >Июнь</option><option value="7" >Июль</option><option value="8" >Август</option><option value="9" >Сентябрь</option><option value="10" >Октябрь</option><option value="11" >Ноябрь</option><option value="12" selected>Декабрь</option>
+				</select>.<select name="data[y2]" id="y2"><option value="2010" >2010</option><option value="2011" >2011</option><option value="2012" >2012</option><option value="2013" >2013</option><option value="2014" >2014</option><option value="2015" >2015</option><option value="2016" >2016</option><option value="2017" >2017</option><option value="2018" >2018</option><option value="2019" >2019</option><option value="2020" >2020</option><option value="2021" >2021</option><option value="2022" selected>2022</option>
+				</select> г.<!-- p. -->
+				<select name="data[krok]"><option value="1" >Дням</option><option value="7" >Неделях</option><option value="31" selected>Месяцах</option><option value="365" >Годах</option>
+				</select>				<button type="submit" class="admin_button" name="data[submit]">
+					<i class="fa fa-line-chart"></i> Показать <!-- Показати -->
+				</button>
+			</td>
+			<input type="hidden" name="data[analysis]" value="1">
+			
+		</tr>
+	</tbody>
+	</table>
+	
+		<input type="checkbox" name="data[show_zero]"  value="1" >  - скрыть учреждения в которых нет показателей по энергоносителям&nbsp;<br><!-- сховати установи у яких немає показників по енергоносію -->
+		<input type="checkbox" name="data[hide_chart]" value="1" > - не показывать графики (скорость анализа возрастет до 10 раз)<!-- не показувати графіки (швидкість аналізу зросте до 10 раз) -->
+			</center><p>
+
+	<div id="testTable">
+			<table align="center">
+				<tr>
+					<td width="100%" align="center">
+						<font color="#FF3333" size="5"><b>Электроэнергия (КВт * ч)</b></font>
+					</td>
+				</tr>
+			</table>
+			<table  rules="groups" frame="hsides" class="tablesorter w0" width="98%"  CELLSPACING="0" CELLPADDING="2" align="center" border="1" id="myTable_0" >
+				<thead> 
+				<tr> 
+					<td><b>Год</b></td>
+					<th colspan="12"><b>2022</b></th>
+					<th style="padding-left: 15px; text-align: right;" rowspan="2"><b>Всего</b></th><!-- Всього -->
+					<th onclick="selectRow(this)" style="padding-left: 15px; text-align: right;" rowspan="2">
+						<b>Лимит</b><!-- Ліміт --><input style="z-index: 20" onclick="$('.use_limits').attr('checked', true);" id="use_limits" 
+							title="Показывать на графике" type="checkbox" name="data[use_limits]" value="1" >
+					</th>
+					<th style="padding-left: 15px; text-align: right;" rowspan="2"><b>Разница</b></th><!-- Різниця -->
+					<th onclick="selectRow(this)" style="padding-left: 15px; text-align: right;" rowspan="2">
+						<b>Стоимость</b><input title="Показывать на графике" type="checkbox" name="data[use_vartist]" value="1" >
+					</th>	
+				</tr>
+				</form>
+					<tr> 
+						<td align="center"><b>Месяц</b></td><th style="padding-left:15px;" colspan="1"><b>Январь</b></th><th style="padding-left:15px;" colspan="1"><b>Февраль</b></th><th style="padding-left:15px;" colspan="1"><b>Март</b></th><th style="padding-left:15px;" colspan="1"><b>Апрель</b></th><th style="padding-left:15px;" colspan="1"><b>Май</b></th><th style="padding-left:15px;" colspan="1"><b>Июнь</b></th><th style="padding-left:15px;" colspan="1"><b>Июль</b></th><th style="padding-left:15px;" colspan="1"><b>Август</b></th><th style="padding-left:15px;" colspan="1"><b>Сентябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Октябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Ноябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Декабрь</b> </th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №1&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">1. ЦБС для дорослих/Філія №1</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №12&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">2. ЦБС для дорослих/Філія №12</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №13&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">3. ЦБС для дорослих/Філія №13</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №16&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">4. ЦБС для дорослих/Філія №16</div></a></b></td><td >192</td><td >138</td><td >0</td><td >0</td><td >244</td><td >155</td><td >157</td><td >0</td><td >303</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>1189</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №2&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">5. ЦБС для дорослих/Філія №2</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №25&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">6. ЦБС для дорослих/Філія №25</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №28&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">7. ЦБС для дорослих/Філія №28</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №29&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">8. ЦБС для дорослих/Філія №29</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №3&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">9. ЦБС для дорослих/Філія №3</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №30&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">10. ЦБС для дорослих/Філія №30</div></a></b></td><td >214</td><td >53</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>267</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №32&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">11. ЦБС для дорослих/Філія №32</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №33&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">12. ЦБС для дорослих/Філія №33</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №34&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">13. ЦБС для дорослих/Філія №34</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №35&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">14. ЦБС для дорослих/Філія №35</div></a></b></td><td >273</td><td >240</td><td >55</td><td >220</td><td >222</td><td >243</td><td >256</td><td >240</td><td >482</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>2231</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №41&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">15. ЦБС для дорослих/Філія №41</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №42&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">16. ЦБС для дорослих/Філія №42</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №47&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">17. ЦБС для дорослих/Філія №47</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №6&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">18. ЦБС для дорослих/Філія №6</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №7&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">19. ЦБС для дорослих/Філія №7</div></a></b></td><td >197</td><td >130</td><td >0</td><td >141</td><td >115</td><td >142</td><td >102</td><td >141</td><td >52</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>1020</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=ЦМБ ім. І. Франка&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">20. ЦБС для дорослих/ЦМБ ім. І. Франка</div></a></b></td><td >1183</td><td >147</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>1330</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+			</tbody>
+			
+				<tr>
+					<td align="center"><b>Всего</b></td><td ><b>2059</b></td><td ><b>708</b></td><td ><b>55</b></td><td ><b>361</b></td><td ><b>581</b></td><td ><b>540</b></td><td ><b>515</b></td><td ><b>381</b></td><td ><b>837</b></td><td ><b>0</b></td><td ><b>0</b></td><td ><b>0</b></td>
+					<td align="center"><b>6037</b></td> 
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+				</tr>
+				<tr>
+					<td style="background-color:#f0f0f0" colspan=200 align="center"> <img src="images/description.png"><a  title="Нажмите чтобы загрузить график" href="tmp/chart_electro_20220920020918.png"><img src="tmp/chart_electro_20220920020918.png"></a>
+					</td>
+				</tr>					
+			</table><p>
+			<table align="center">
+				<tr>
+					<td width="100%" align="center">
+						<font color="#3366CC" size="5"><b>Вода (м<sup>3</sup>)</b></font>
+					</td>
+				</tr>
+			</table>
+			<table  rules="groups" frame="hsides" class="tablesorter w1" width="98%"  CELLSPACING="0" CELLPADDING="2" align="center" border="1" id="myTable_1" >
+				<thead> 
+				<tr> 
+					<td><b>Год</b></td>
+					<th colspan="12"><b>2022</b></th>
+					<th style="padding-left: 15px; text-align: right;" rowspan="2"><b>Всего</b></th><!-- Всього -->
+					<th onclick="selectRow(this)" style="padding-left: 15px; text-align: right;" rowspan="2">
+						<b>Лимит</b><!-- Ліміт --><input style="z-index: 20" onclick="$('.use_limits').attr('checked', true);" id="use_limits" 
+							title="Показывать на графике" type="checkbox" name="data[use_limits]" value="1" >
+					</th>
+					<th style="padding-left: 15px; text-align: right;" rowspan="2"><b>Разница</b></th><!-- Різниця -->
+					<th onclick="selectRow(this)" style="padding-left: 15px; text-align: right;" rowspan="2">
+						<b>Стоимость</b><input title="Показывать на графике" type="checkbox" name="data[use_vartist]" value="1" >
+					</th>	
+				</tr>
+				</form>
+					<tr> 
+						<td align="center"><b>Месяц</b></td><th style="padding-left:15px;" colspan="1"><b>Январь</b></th><th style="padding-left:15px;" colspan="1"><b>Февраль</b></th><th style="padding-left:15px;" colspan="1"><b>Март</b></th><th style="padding-left:15px;" colspan="1"><b>Апрель</b></th><th style="padding-left:15px;" colspan="1"><b>Май</b></th><th style="padding-left:15px;" colspan="1"><b>Июнь</b></th><th style="padding-left:15px;" colspan="1"><b>Июль</b></th><th style="padding-left:15px;" colspan="1"><b>Август</b></th><th style="padding-left:15px;" colspan="1"><b>Сентябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Октябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Ноябрь</b></th><th style="padding-left:15px;" colspan="1"><b>Декабрь</b> </th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №1&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">1. ЦБС для дорослих/Філія №1</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №12&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">2. ЦБС для дорослих/Філія №12</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №13&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">3. ЦБС для дорослих/Філія №13</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №16&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">4. ЦБС для дорослих/Філія №16</div></a></b></td><td >4</td><td >3</td><td >0</td><td >0</td><td >5</td><td >4</td><td >3</td><td >0</td><td >7</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>26</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №2&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">5. ЦБС для дорослих/Філія №2</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №25&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">6. ЦБС для дорослих/Філія №25</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №28&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">7. ЦБС для дорослих/Філія №28</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №29&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">8. ЦБС для дорослих/Філія №29</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №3&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">9. ЦБС для дорослих/Філія №3</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №30&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">10. ЦБС для дорослих/Філія №30</div></a></b></td><td >0</td><td >1</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>1</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №32&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">11. ЦБС для дорослих/Філія №32</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №33&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">12. ЦБС для дорослих/Філія №33</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №34&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">13. ЦБС для дорослих/Філія №34</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №35&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">14. ЦБС для дорослих/Філія №35</div></a></b></td><td >3</td><td >6</td><td >2</td><td >4</td><td >4</td><td >3</td><td >3</td><td >4</td><td >2</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>31</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №41&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">15. ЦБС для дорослих/Філія №41</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №42&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">16. ЦБС для дорослих/Філія №42</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №47&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">17. ЦБС для дорослих/Філія №47</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №6&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">18. ЦБС для дорослих/Філія №6</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=Філія №7&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">19. ЦБС для дорослих/Філія №7</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+					<tr>
+						<td><b><a class="link" href="analysis.php?data[analysis]=1&data[kategory]=ЦБС для дорослих
+						&data[subkategory]=ЦМБ ім. І. Франка&data[d1]=1&data[m1]=1&data[y1]=2022
+						&data[d2]=31&data[m2]=12&data[y2]=2022&data[krok]=31
+						&data[screen_width]=1920"><div style="text-align:left;">20. ЦБС для дорослих/ЦМБ ім. І. Франка</div></a></b></td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td><td >0</td>
+					<td align="center"><b>0</b></td>
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+					</tr>
+			</tbody>
+			
+				<tr>
+					<td align="center"><b>Всего</b></td><td ><b>7</b></td><td ><b>10</b></td><td ><b>2</b></td><td ><b>4</b></td><td ><b>9</b></td><td ><b>7</b></td><td ><b>6</b></td><td ><b>4</b></td><td ><b>9</b></td><td ><b>0</b></td><td ><b>0</b></td><td ><b>0</b></td>
+					<td align="center"><b>58</b></td> 
+					<td align="center"><b><font color="blue">0</font></b></td>
+					<td align="center"><b><font color="balck">0</font></b></td>
+					<td align="center"><b>0</b></td>
+				</tr>
+				<tr>
+					<td style="background-color:#f0f0f0" colspan=200 align="center"> <img src="images/description.png"><a  title="Нажмите чтобы загрузить график" href="tmp/chart_voda_20220920020918.png"><img src="tmp/chart_voda_20220920020918.png"></a>
+					</td>
+				</tr>					
+			</table><p></div>
+	<form 	action="index.php" method="post" name="frt" id="frt" enctype="multipart/form-data">
+	<button type="submit" class="index_button">
+		<i class="fa fa-arrow-circle-left"></i> Вернуться <!-- Повернутись -->
+	</button>
+	<input type="hidden" name="data[analysis]" value="0"/></center>
+	</form><p>
+	
+	<p><center><b><font color="#CD853F" size="5">Температура</font></b></center><!-- Температура -->
+	<table class="temperatura" width="100%"  CELLSPACING="0" CELLPADDING="2" align="center" border=1>
+		<tr>
+			<td><b>Дата</b></td><td><b>01.2022</b></td><td><b>02.2022</b></td><td><b>03.2022</b></td><td><b>04.2022</b></td><td><b>05.2022</b></td><td><b>06.2022</b></td><td><b>07.2022</b></td><td><b>08.2022</b></td><td><b>09.2022</b></td><td><b>10.2022</b></td><td><b>11.2022</b></td><td><b>12.2022</b></td>
+		</tr>
+		<tr>
+			<td><b>Температура внешняя</b></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td><td><font color="blue">0</font></td>
+		</tr>
+		<tr> 	
+			<td colspan="13" style="background-color:#f0f0f0"><a  title="Показывать на графике" href="tmp/chart_temperatura_20220920020918.png"><img src="tmp/chart_temperatura_20220920020918.png"></a>
+			</td>
+		</tr>
+	</table><p>
+	<p><center><b><font color="#61689E" size="5">Ветер</font></b></center><!-- Вітер -->
+	<table class="viter" width="100%"  CELLSPACING="0" CELLPADDING="2" align="center" border=1>
+		<tr>
+			<td><b>Дата</b></td><td><b>01.2022</b></td><td><b>02.2022</b></td><td><b>03.2022</b></td><td><b>04.2022</b></td><td><b>05.2022</b></td><td><b>06.2022</b></td><td><b>07.2022</b></td><td><b>08.2022</b></td><td><b>09.2022</b></td><td><b>10.2022</b></td><td><b>11.2022</b></td><td><b>12.2022</b></td>
+		</tr>
+		<tr>
+			<td><b>Направление</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		<tr>
+			<td><b>Скорость</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr> 	
+			<td colspan="13" style="background-color:#f0f0f0">
+			<a  title="Показывать на графике" href="tmp/chart_viter_20220920020918.png"><img src="tmp/chart_viter_20220920020918.png"></a>
+		</tr>
+	</table><p><br>Количество элементов для расчета: 925<br>Время расчета: 0.05 с.<br>Время для создания графиков: 0.97 с.
+</body>
+</html>
